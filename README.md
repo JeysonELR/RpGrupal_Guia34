@@ -1,5 +1,5 @@
 # RpGrupal_Guia4
-Desarrollo actividad 1 y actividad 2, (2021-2)
+Desarrollo actividad 1, (2021-2)
 
 El informe técnico pueden encontrarse junto al diagrama de clase final, en el siguiente enlace:
 
