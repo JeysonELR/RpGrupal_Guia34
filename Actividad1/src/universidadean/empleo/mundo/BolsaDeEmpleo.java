@@ -128,14 +128,13 @@ public class BolsaDeEmpleo {
     public void ordenarPorProfesion() {
         // TODO: Realizar el ejercicio correspondiente
     
-    int area = aspirantes.size();
-            for (int h = 0; h < area; h++) {          // Gestionando el proceso de los elementos hasta los más pesados.
-                for (int i = h + 1 ; i < area; i++) {  // Ordena los elementos gestionados.
-                    if (aspirantes.get(h).darProfesion().compareTo(aspirantes.get(i).darProfesion())> 0) {
-                        Aspirante aux = aspirantes.get(i);
-                        aspirantes.set(i, aspirantes.get(h));
-                        aspirantes.set(h, aux);
-                    }
+        int area = aspirantes.size();
+        for (int h = 0; h < area; h++) {          // Gestionando el proceso de los elementos hasta los más pesados.
+            for (int i = h + 1; i < area; i++) {  // Ordena los elementos gestionados.
+                if (aspirantes.get(h).darProfesion().compareTo(aspirantes.get(i).darProfesion()) > 0) {
+                    Aspirante aux = aspirantes.get(i);
+                    aspirantes.set(i, aspirantes.get(h));
+                    aspirantes.set(h, aux);
                 }
             }
         }
