@@ -19,37 +19,43 @@ public class RegistroBicicletaControlador {
     @Autowired
     private RegistroBicicletaServicio servicio;
 
+    @CrossOrigin(origins = "http://localhost:4200")
     @PostMapping("/registroBicicleta")
     public ResponseEntity<String> crearResgistroBicicleta(@Valid @RequestBody RegistroBicicleta registroBicicleta){
-        RegistroBicicleta oldRegistroBicicleta = servicio.obtenerRegistroBicicleta(
-                registroBicicleta.getIdentificacion(),
-                registroBicicleta.getSerialBici());
-        if (!oldRegistroBicicleta.equals(null)){
-            return new ResponseEntity<>("Ya existe un registro con estos datos" , HttpStatus.BAD_REQUEST);
-        }
+
         Long idRegistroBicicleta = servicio.crearRegistroBicicleta(registroBicicleta);
         return new ResponseEntity<>("Se creo el registro exitosamente id:" + idRegistroBicicleta, HttpStatus.CREATED);
     }
-
+    @CrossOrigin(origins = "http://localhost:4200")
     @GetMapping("/registroBicicleta/{identificacion}/{serialBici}")
     public @ResponseBody  RegistroBicicleta obtenerResgistroBicicleta(@PathVariable Long identificacion, @PathVariable String serialBici){
         return servicio.obtenerRegistroBicicleta(identificacion,serialBici);
     }
 
+    @CrossOrigin(origins = "http://localhost:4200")
     @GetMapping("/registroBicicleta/{id}")
     public @ResponseBody  Optional<RegistroBicicleta> obtenerResgistroBicicleta(@PathVariable Long id){
         return servicio.obtenerRegistroBicicleta(id);
     }
 
+    @CrossOrigin(origins = "http://localhost:4200")
     @GetMapping("/registrosBicicletas")
     public @ResponseBody  Iterable<RegistroBicicleta> obtenerResgistrosBicicletas(){
         return servicio.obtenerRegistrosBicicletas();
     }
 
-    @PatchMapping("/salidaRegistroBicicleta/{id}")
+    @CrossOrigin(origins = "http://localhost:4200")
+    @GetMapping("/salidaRegistroBicicleta/{id}")
     public @ResponseBody  ResponseEntity<String> salidaRegistroBicicleta(@PathVariable Long id){
         Long idRegistroBicicleta = servicio.registrarFechaSalidaBicicleta(id);
         return new ResponseEntity<>("Se registro la salida exitosamente id:" + idRegistroBicicleta, HttpStatus.OK);
+    }
+
+    @CrossOrigin(origins = "http://localhost:4200")
+    @DeleteMapping("/registroBicicleta/{id}")
+    public @ResponseBody  ResponseEntity<String> eliminarRegistro(@PathVariable Long id){
+        servicio.eliminarRegistro(id);
+        return new ResponseEntity<>("Se elimino el registro exitosamente", HttpStatus.OK);
     }
 
     @ResponseStatus(HttpStatus.BAD_REQUEST)

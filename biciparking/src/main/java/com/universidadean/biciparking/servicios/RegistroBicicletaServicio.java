@@ -38,4 +38,9 @@ public class RegistroBicicletaServicio {
         RegistroBicicleta nuevoRegistroBicicleta = repositorio.save(registroBicicleta);
         return nuevoRegistroBicicleta.getIdRegistroBicicleta();
     }
+
+    public void eliminarRegistro(Long id){
+        Optional<RegistroBicicleta> registroBicicleta = repositorio.findById(id);
+        repositorio.delete(registroBicicleta.get());
+    }
 }
