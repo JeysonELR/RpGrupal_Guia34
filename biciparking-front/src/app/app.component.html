@@ -1,0 +1,48 @@
+
+<div class="formularioRegistro">
+  <h2>Crear Registro</h2>
+  <form [formGroup]="biciparkingForm" (ngSubmit) = "guardar()" >
+    <div class="form-group" >
+      <label>Nombre</label>
+      <input type="text" formControlName="nombre" class="form-control">
+      <label>Identificacion</label>
+      <input type="text" formControlName="identificacion" class="form-control">
+      <label>Serial Bicicleta</label>
+      <input type="text" formControlName="serialBici" class="form-control">
+    </div>
+    <button type="submit" class="btn btn-primary" [disabled]="biciparkingForm.invalid">Guardar</button>
+  </form>
+</div>
+
+<div class="tablaRegistro">
+<h2>Registros</h2>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Identificación</th>
+        <th>Serial Bicicleta</th>
+        <th>Fecha Ingreso</th>
+        <th>Fecha Salida</th>
+        <th>Opciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of registros">
+        <th>{{item.idRegistroBicicleta}}</th>
+        <td>{{item.nombre}}</td>
+        <td>{{item.identificacion}}</td>
+        <td>{{item.serialBici}}</td>
+        <td>{{item.fechaIngreso}}</td>
+        <td>{{item.fechaSalida}}</td>
+        <td>
+          <button type="button" class="btn btn-secondary" (click)="registrarSalida(item.idRegistroBicicleta)">Registrar Salida</button>
+          <button type="button" class="btn btn-danger" (click)="eliminar(item.idRegistroBicicleta)">Eliminar</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<router-outlet></router-outlet>
