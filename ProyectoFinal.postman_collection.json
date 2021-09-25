@@ -1,0 +1,406 @@
+{
+	"info": {
+		"_postman_id": "77dda0e9-6475-4474-be30-d97e91785e19",
+		"name": "ProyectoFinal",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "registroBicicleta",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nombre\": \"Elianna Oviedo\",\n    \"serialBici\": \"123244241\",\n    \"identificacion\": 123456\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/registroBicicleta",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"registroBicicleta"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "response 201",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nombre\": \"Elianna Oviedo\",\n    \"serialBici\": \"123244241\",\n    \"identificacion\": 123456\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/registroBicicleta",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"registroBicicleta"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "text/plain;charset=UTF-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "33"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 25 Sep 2021 00:44:38 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "Se creo el registro exitosamente3"
+				},
+				{
+					"name": "reponse 400",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nombre\": \"Elianna Oviedo\",\n    \"serialBici\": \"123244241\",\n    \"identificacion\": 123456\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/registroBicicleta",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"registroBicicleta"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "text/plain;charset=UTF-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "37"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 25 Sep 2021 01:38:23 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						}
+					],
+					"cookie": [],
+					"body": "Ya existe un registro con estos datos"
+				}
+			]
+		},
+		{
+			"name": "obtener Registro por identificacion y serial",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/registroBicicleta/123456/123244241",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"registroBicicleta",
+						"123456",
+						"123244241"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "response Ok",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/registroBicicleta/123456/123244241",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"registroBicicleta",
+								"123456",
+								"123244241"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 25 Sep 2021 00:44:54 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"idRegistroBicicleta\": 3,\n    \"nombre\": \"Elianna Oviedo\",\n    \"fechaIngreso\": \"2021-09-25T00:44:38.572+00:00\",\n    \"fechaSalida\": null,\n    \"serialBici\": \"123244241\",\n    \"identificacion\": 123456\n}"
+				}
+			]
+		},
+		{
+			"name": "obtener Registro por id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/registroBicicleta/3",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"registroBicicleta",
+						"3"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "reponse Ok",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/registroBicicleta/3",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"registroBicicleta",
+								"3"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 25 Sep 2021 00:47:48 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"idRegistroBicicleta\": 3,\n    \"nombre\": \"Elianna Oviedo\",\n    \"fechaIngreso\": \"2021-09-25T00:44:38.572+00:00\",\n    \"fechaSalida\": null,\n    \"serialBici\": \"123244241\",\n    \"identificacion\": 123456\n}"
+				}
+			]
+		},
+		{
+			"name": "registrosBicicletas",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/registrosBicicletas/",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"registrosBicicletas",
+						""
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "response 200",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/registrosBicicletas/",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"registrosBicicletas",
+								""
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 25 Sep 2021 00:48:44 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"idRegistroBicicleta\": 1,\n        \"nombre\": \"Javier\",\n        \"fechaIngreso\": null,\n        \"fechaSalida\": null,\n        \"serialBici\": \"12323sadsa\",\n        \"identificacion\": null\n    },\n    {\n        \"idRegistroBicicleta\": 2,\n        \"nombre\": \"Hola\",\n        \"fechaIngreso\": null,\n        \"fechaSalida\": null,\n        \"serialBici\": \"12324424\",\n        \"identificacion\": 123456\n    },\n    {\n        \"idRegistroBicicleta\": 3,\n        \"nombre\": \"Elianna Oviedo\",\n        \"fechaIngreso\": \"2021-09-25T00:44:38.572+00:00\",\n        \"fechaSalida\": null,\n        \"serialBici\": \"123244241\",\n        \"identificacion\": 123456\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "salidaRegistroBicicleta",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/salidaRegistroBicicleta/3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"salidaRegistroBicicleta",
+						"3"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "response 200",
+					"originalRequest": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/salidaRegistroBicicleta/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"salidaRegistroBicicleta",
+								"3"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "text/plain;charset=UTF-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "33"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 25 Sep 2021 00:54:20 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "Se creo el registro exitosamente3"
+				}
+			]
+		}
+	]
+}
